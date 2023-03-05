@@ -1,0 +1,24 @@
+{
+    "name": "firstkb/framework-bundle",
+    "description": "LightWeight php framework firstKB",
+    "type": "firstkb-bundle",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Andrii Koien",
+            "email": "firstkb@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Firstkb\\FrameworkBundle\\": ""
+        }
+    },
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=7.1",
+        "ext-json": "*",
+        "ext-mbstring": "*",
+        "ext-ctype": "*"
+    }
+}
