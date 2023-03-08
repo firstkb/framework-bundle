@@ -1,3 +1,5 @@
+<p align="center"><img src="https://firstkb.com/firstkb-github.jpg"></p>
+
 **FirstKB** is a **lightweight** and fast **PHP framework** that simplifies web application development and speeds up their loading.
 
 Features
@@ -37,7 +39,7 @@ php -S localhost:8000 -t public
 Usage
 -----
 
-###Config
+**Config**
 
 The config.php file is a global configuration file for the FirstKB framework, which is used for defining various settings related to the application. It includes the following settings:
 
@@ -65,7 +67,8 @@ return [
 ];
 ```
 
-###Router
+**Router**
+
 The FirstKB router supports two ways of defining routes - through annotations in controllers and through an array in the /config/routes.php file. In both cases, routes are described using a path, HTTP methods, route name, and the name of the controller that will handle the request.
 
 The router supports various types of variables that can be passed in the route, such as integer, string, and others. For example, to limit a variable to only alphabetical characters, the name:string type can be used.
@@ -98,7 +101,7 @@ The router can use the following types of variables:
 * name:string - a string variable limited to alphanumeric characters only.
 * You can use these variable types to define constraints on input parameters when processing requests.
 
-###Request
+**Request**
 
 The Request class also provides access to the $_GET, $_POST, $_COOKIE, $_FILES, and $_SERVER global variables through the query, request, cookies, files, and server properties, respectively. You can use these properties to get or set values for these global variables:
 
@@ -112,7 +115,7 @@ $server = $request->server->all(); // get $_SERVER return array
 
 An example of connecting a class done in AbstractController.
 
-###Responce
+**Responce**
 
 The Response class is used to represent an HTTP response. It has several properties and methods that allow you to set the response status, headers, and content.
 
@@ -134,6 +137,54 @@ $response->send();
 
 ```
 
+**Template**
+
+The Template class is intended for rendering web page templates. It provides the ability to register custom functions that can be called from templates, as well as accepts data for passing to the template and processes it to create the final HTML code.
+
+The registerFunction method registers a new custom function in $templateFunctions, which can be called from a template. It takes a string $name and callable $function as arguments.
+
+Example use
+```
+<?php
+
+use Firstkb\FrameworkBundle\Template\Template;
+
+// The path to the application root directory
+$rootPath = __DIR__;
+
+// Create an instance of the Template class
+$template = new Template($rootPath);
+
+// Register a custom function
+$template->registerFunction('customFunction', function() {
+    return 'Custom function output';
+});
+
+// Data to pass to the template
+$data = [
+    'projectName' => 'My Awesome Project',
+    'contactEmail' => 'contact@example.com'
+];
+
+// The name of the template file
+$templateName = 'home';
+
+// Render the template with data
+$content = $template->render($templateName, $data);
+
+```
+
+Use in template
+```
+<?php
+/**
+ * @var TemplateFunctions $core
+ */
+?>
+...
+<p><?php echo $core->customFunction(); ?></p>
+...
+```
 
 License
 -------
