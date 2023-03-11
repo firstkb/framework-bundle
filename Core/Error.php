@@ -118,6 +118,7 @@ class Error
 
         $html = "<html lang='en'><head><title>Exception</title><link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css\"><style>body {background-color: #f5f5f5;}.exception {margin: 20px auto;max-width: 90%;padding: 20px;}.exception h1 {color: #c0392b;font-size: 2.5rem;margin-top: 0;margin-bottom: 0.5rem;}.exception p:first-child {margin: 10px 0;font-size: 1.2rem;font-weight: 400;line-height: 1.5;}.exception pre {background-color: #eee;border: 1px solid #ddd;border-radius: 4px;font-size: 12px;padding: 10px;white-space: pre-wrap;}</style></head><body><div class=\"exception\">{$block}</div></body></html>";
 
-        return new Response($html, 500);
+        $responce = new Response($html, 500);
+        return $responce->send();
     }
 }

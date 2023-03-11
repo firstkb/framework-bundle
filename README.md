@@ -1,4 +1,4 @@
-<p align="center"><img src="https://firstkb.com/firstkb-github.jpg"></p>
+<p align="center"><img src="https://firstkb.com/firstkb-github.jpg" style="max-width: 240px;"></p>
 
 **FirstKB** is a **lightweight** and fast **PHP framework** that simplifies web application development and speeds up their loading.
 
